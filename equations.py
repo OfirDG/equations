@@ -50,7 +50,6 @@ def sqrt(x,y):
     
 def calculate(x):
     result=exponent(x)*XtimesY(7,x)*XtimesY(x,-1)*sqrt(x,x)
-    print (result)
     result = float('%0.6f' % result)
     return float(result)
 
