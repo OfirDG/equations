@@ -8,9 +8,8 @@ def exponent(x):
         factorial = i*factorial
         e=e+z/factorial
         i+=1
-    return e
+    return float(e)
 
-#print(exponent(3.0))
 
 def Ln(x):
     y=0.5*x
@@ -18,28 +17,27 @@ def Ln(x):
     numOf_rounds=1
     if x==1:
         y=0
-    elif x<0:
-        x=-1*x
-    while True:
-        y=y+2*((x-exponent(y))/(x+exponent(y)))
-        i+=1
-        numOf_rounds+=1
-        if numOf_rounds == 100:
+    elif x<=0:
+        y=0
+    else:
+        while True:
+            y=y+2*((x-exponent(y))/(x+exponent(y)))
+            i+=1
+            numOf_rounds+=1
+            if numOf_rounds == 100:
                 break
-    return y
+    return float(y)
 
-#print(Ln(100))
-    
+
+ 
 def XtimesY(x,y):
-    if x<0 and y%2!=0:
-        z=y*Ln(x)
-        x=-exponent(z)
+    if x<0:
+        x=0
     else:    
         z=y*Ln(x)
         x=exponent(z)
-    return x
+    return float(x)
 
-#print(XtimesY(-5,5))
     
 def sqrt(x,y):
     if x==0:
@@ -47,17 +45,15 @@ def sqrt(x,y):
     else:
         power=1/x
         z=XtimesY(y,power)
-    return z
+    return float(z)
 
-#print(sqrt(-0.2,14))
     
 def calculate(x):
-    print(exponent(x)*XtimesY(7,x)*XtimesY(x,-1)*sqrt(x,x))
+    result=exponent(x)*XtimesY(7,x)*XtimesY(x,-1)*sqrt(x,x)
+    print (result)
+    result = float('%0.6f' % result)
+    return float(result)
 
-
-x = float(input(''))
-calculate(x)
-    
     
     
     
